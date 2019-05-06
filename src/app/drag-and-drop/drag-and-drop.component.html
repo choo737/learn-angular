@@ -1,0 +1,15 @@
+<h1 style="text-align: center">Drag and drop the boxes below</h1>
+<mat-grid-list cols="2">
+  <mat-grid-tile>
+    <div #lane1="cdkDropList" [cdkDropListData]="numberRows" [cdkDropListConnectedTo]="[lane2]" cdkDropList
+      class="example-list" (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let numberRow of numberRows" cdkDrag>{{numberRow}}</div>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <div #lane2="cdkDropList" [cdkDropListData]="numberBoxes" [cdkDropListConnectedTo]="[lane1]" cdkDropList
+      class="example-list" (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let numberBox of numberBoxes" cdkDrag>{{numberBox}}</div>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
